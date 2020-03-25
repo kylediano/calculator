@@ -291,13 +291,14 @@ class Ui_MainWindow(object):
             self.num2 = self.output
             answer = 0
             if self.operator == "+":
-                answer = float(self.num1) + float(self.num2)
+                # answer = float(self.num1) + float(self.num2)
+                answer = Calculator.add(self,self.num1,self.num2)
             elif self.operator == "-":
-                answer = float(self.num1) - float(self.num2)
+                answer = Calculator.subtract(self,self.num1,self.num2)
             elif self.operator == "/":
-                answer = float(self.num1) / float(self.num2)
+                answer = Calculator.divide(self,self.num1,self.num2)
             elif self.operator == "*":
-                answer = float(self.num1) * float(self.num2)
+                answer = Calculator.multiply(self,self.num1,self.num2)
             if len(str(answer)) > 13:
                 self.screen.setText("ERROR")
                 self.output = "0"
@@ -382,6 +383,22 @@ class Ui_MainWindow(object):
         self.button_sq.setText(_translate("MainWindow", "x²"))
         self.operation.setText(_translate("MainWindow", ""))
 
+class Calculator():
+    def add(self,num1,num2):
+        sum = float(num1) + float(num2)
+        return sum
+
+    def subtract(self,num1,num2):
+        difference = float(num1) - float(num2)
+        return difference
+
+    def multiply(self,num1,num2):
+        product = float(num1) * float(num2)
+        return product
+
+    def divide(self,num1,num2):
+        quotient = float(num1) / float(num2)
+        return quotient
 
 if __name__ == "__main__":
     import sys
